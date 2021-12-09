@@ -1,7 +1,7 @@
 *{margin:0; padding:0;}
 body{position: relative; top:0; left:0;}
-button{border:2px solid #3464b8; color:#3464b8; background-color: rgba(255,255,255,0.8); font-size: 16px; margin:10px 0; border-radius: 500px; padding:5px 10px; text-transform: uppercase; font-weight: bold; box-shadow: 3px 3px 10px #80a4e2;}
-button:hover{background-color: #3464b8; color:#ffffff; transition: all ease 0.3s;}
+button{border:2px solid #92baff; color:#92baff; background-color: rgba(255,255,255,0.8); font-size: 16px; margin:10px 0; border-radius: 500px; padding:5px 10px; text-transform: uppercase; font-weight: bold; box-shadow: 3px 3px 10px #80a4e2;}
+button:hover{background-color: #92baff; color:#ffffff; transition: all ease 0.3s;}
 main{display:flex; max-width:600px; width:100%; margin:0 auto; justify-content: space-between; position: relative; border-radius: 20px; overflow: hidden; position:fixed; top:50%; left:50%; transform: translate(-50%,-50%); box-shadow: 3px 3px 20px #5d90ff;}
 .player{padding:20px 0;}
 .score{padding:15px 0; font-size: 50px; font-weight: bold;}
@@ -10,4 +10,17 @@ main{display:flex; max-width:600px; width:100%; margin:0 auto; justify-content: 
 .player-active{background-image: linear-gradient(#abdcff,#0396FF); color:#ffffff;}
 .button-wrap{position:absolute; top:50%; left:50%; transform: translate(-50%,-50%);
 display:flex; flex-direction: column; justify-content: space-between; text-align: center;}
-.dice-number{font-size: 80px; font-weight: bold; color:#ffffff; text-shadow: 3px 3px 15px #4d85ff; -webkit-text-stroke: 2upx #1e90ff ;}
+.dice-number{font-size: 80px; font-weight: bold; color:#ffffff; text-shadow: 3px 3px 15px #4d85ff; -webkit-text-stroke: 1px #1e90ff;}
+.winner{background-image: linear-gradient(45deg,#6a33cf, #3360da, #ffffff); background-size: 300% 300%; overflow: hidden; animation: win 5s ease infinite; color:#ffffff;}
+
+@keyframes win{
+    0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
