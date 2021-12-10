@@ -6,7 +6,8 @@ main{display:flex; max-width:600px; width:100%; margin:0 auto; justify-content: 
 .player{padding:20px 0;}
 .score{padding:15px 0; font-size: 50px; font-weight: bold;}
 .turn-wrap{padding:15px 0 30px; font-size: 20px;}
-.player-wrap{text-align: center; background-color: rgba(255, 255, 255,0.7); width:50%; backdrop-filter: blur(5px);}
+.turn-score{font-size: 30px; font-weight: bold;}
+.player-wrap{text-align: center; background-color: rgba(255, 255, 255,0.7); width:50%; backdrop-filter: blur(5px); color:#0396FF; padding:50px 0;}
 .player-active{background-image: linear-gradient(#abdcff,#0396FF); color:#ffffff;}
 .button-wrap{position:absolute; top:50%; left:50%; transform: translate(-50%,-50%);
 display:flex; flex-direction: column; justify-content: space-between; text-align: center;}

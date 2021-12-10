@@ -1,25 +1,38 @@
-const $ = (selector) => document.querySelector(selector);
+'use strict'
+//
+const player1 = document.querySelector(".first-player-wrap");
+const player2 = document.querySelector(".second-player-wrap");
+const playScore1 = document.querySelector('#first-player-score');
+const playScore2 = document.querySelector('#second-player-score');
+const currentScore1 = document.querySelector("#first-current-score");
+const currentScore2 = document.querySelector("#second-current-score");
+const dice = document.querySelector(".dice-number");
+const newGameBtn = document.querySelector(".new-game-button");
+const playBtn = document.querySelector(".playing-button");
+const holdBtn = document.querySelector(".hold-button");
 
-const player1 = $(".first-player-wrap");
-const player2 = $(".second-player-wrap");
-const playScore1 = $('#first-player-score');
-const playScore2 = $('#second-player-score');
-const currentScore1 = $("#first-current-score");
-const currentScore2 = $("#second-current-score");
-const dice = $(".dice-number");
-const newGameBtn = $(".new-game-button");
-const playBtn = $(".playing-button");
-const holdBtn = $(".hold-button");
+let scores, currentScore, activePlayerScore, playing;
 
-// 점수 초기화
-playScore1.textContent = 0;
-playScore2.textContent = 0;
-dice.textContent = 0;
+const init =function(){
+    // 점수,주사위 초기화
+    playScore1.textContent = 0;
+    playScore2.textContent = 0;
+    dice.textContent = 0;
+    currentScore1.textContent = 0;
+    currentScore2.textContent = 0;
 
-const scores = [0, 0];
-let currentScore = 0;
-let activePlayerScore = currentScore1;
-let playing = true;
+    // 현재 점수
+    scores = [0, 0];
+    currentScore = 0;
+    activePlayerScore = currentScore1;
+    playing = true;
+
+    player1.classList.remove('winner');
+    player2.classList.remove('winner');
+    player1.classList.add('player-active');
+    player2.classList.remove('player-active');
+}
+init();
 
 const switchPlayer = () =>{
     activePlayerScore.textContent = 0;
@@ -35,7 +48,7 @@ const switchPlayer = () =>{
             .toggle("player-active");
 }
 
-playBtn.addEventListener("click", () => {
+playBtn.addEventListener('click', () => {
     // 주사위 동작 주사위 표시 주사위 체크
 
     if(playing){
@@ -57,13 +70,14 @@ holdBtn.addEventListener('click',()=>{
         scores[activePlayerScore===currentScore1? 0 : 1] += currentScore;
     activePlayerScore.closest('section').querySelector('.score').textContent =scores[activePlayerScore===currentScore1? 0 : 1]
     
-    if (scores[activePlayerScore===currentScore1? 0 : 1] >=10){
+    if (scores[activePlayerScore===currentScore1? 0 : 1] >=100){
         playing= false;
-        $('.player-active').classList.add('winner');
-        $('.player-active').classList.remove('player-active');
+        document.querySelector('.player-active').classList.add('winner');
+        document.querySelector('.player-active').classList.remove('player-active');
     }else{
         switchPlayer();
     }
     }
-    //activePlayer.closest(".score").textContent=scores[activePlayer]    
 })
+
+newGameBtn.addEventListener('click',init)
