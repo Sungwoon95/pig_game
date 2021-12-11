@@ -70,10 +70,11 @@ holdBtn.addEventListener('click',()=>{
         scores[activePlayerScore===currentScore1? 0 : 1] += currentScore;
     activePlayerScore.closest('section').querySelector('.score').textContent =scores[activePlayerScore===currentScore1? 0 : 1]
     
-    if (scores[activePlayerScore===currentScore1? 0 : 1] >=100){
+    if (scores[activePlayerScore===currentScore1? 0 : 1] >=10){
         playing= false;
         document.querySelector('.player-active').classList.add('winner');
         document.querySelector('.player-active').classList.remove('player-active');
+        
     }else{
         switchPlayer();
     }
